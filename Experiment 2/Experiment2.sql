@@ -13,8 +13,16 @@ INSERT INTO Employee VALUES ('e004', 'Gowtham', 'IT', 80000, '18-NOV-2020');
 INSERT INTO Employee VALUES ('e005', 'Prabas', 'Finance', 50000, '19-SEP-2022');
 
 
-SELECT * from Employee;
+SELECT department, AVG(salary) AS avg_salary
+FROM employee
+WHERE salary > 20000
+GROUP BY department
+HAVING AVG(salary) > 30000
+ORDER BY avg_salary DESC;
 
-SELECT Department, AVG(Salary) AVG_SAL FROM Employee WHERE Id LIKE 'e00%';
+SELECT department, AVG(salary) AS avg_salary
+FROM employee GROUP BY department;
 
-SELECT MIN(Salary) FROM Emplayee ;
+SELECT department, AVG(salary) AS avg_salary
+FROM employee GROUP BY department
+HAVING AVG (salary) > 30000 ;
